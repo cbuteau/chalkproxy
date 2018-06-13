@@ -7,7 +7,12 @@ function findChalkFunc(chalkString) {
   var chunks = chalkString.split('.');
   // look up each chalk function by name.
   for (var i = 0; i < chunks.length; i++) {
-    result = result[chunks[i]];
+    var current = chunks[i];
+    // Allow extra periods and accidental whitepace...
+    if (current && current.length) {
+      current = current.trim();
+      result = result[current];
+    }
   }
   return result;
 }

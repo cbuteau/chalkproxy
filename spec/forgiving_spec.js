@@ -28,7 +28,6 @@ describe('Forgiving parsing of strings to chalk functions...', function() {
 
   it ('good', function(done) {
     spyOn(console, 'log').and.callFake(function(info) {
-      expect(info.indexOf('good')).not.toBe(-1);
       expect(info).toBe(GOOD_WITH_CONTROL_CODES);
       done();
     });
@@ -38,7 +37,6 @@ describe('Forgiving parsing of strings to chalk functions...', function() {
 
   it ('Bad', function(done) {
     spyOn(console, 'log').and.callFake(function(info) {
-      expect(info.indexOf('bad')).not.toBe(-1);
       expect(info).toBe(BAD_WITH_CONTROL_CODES);
       done();
     });
@@ -48,7 +46,6 @@ describe('Forgiving parsing of strings to chalk functions...', function() {
 
   it ('Ugly', function(done) {
     spyOn(console, 'log').and.callFake(function(info) {
-      expect(info.indexOf('ugly')).not.toBe(-1);
       expect(info).toBe(UGLY_WITH_CONTROL_CODES);
       done();
     });

@@ -7,6 +7,21 @@ I love using chalk in projects and keeps creating a wrapper around it so I can e
 
 The idea is this allows you to create a custom wrapper for your own projects.
 
+## Badges/Status
+
+Travis
+
+[![Build Status](https://travis-ci.org/cbuteau/jsigs.svg?branch=master)](https://travis-ci.org/cbuteau/chalkproxy)
+
+npm Version
+
+[![npm version](http://img.shields.io/npm/v/chalkproxy.svg?style=flat)](https://npmjs.org/package/chalkproxy "View this project on npm")
+
+npm big badge
+
+[![NPM](https://nodei.co/npm/chalkproxy.png)](https://nodei.co/npm/chalkproxy/)
+
+
 ## Usage
 
 ```javascript

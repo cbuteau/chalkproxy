@@ -6,6 +6,26 @@ var style = require('ansi-styles');
 
 var mychalk;
 
+var oldconsoleLog = console.log;
+
+function compareStrings(stringOne, stringTwo) {
+  var len = stringOne.length;
+  if (stringOne.length !== stringTwo.length) {
+    oldconsoleLog('They are unequal length');
+    len = Math.min(stringOne.length, stringTwo.length);
+  } else {
+    oldconsoleLog('congradulations they are the same length');
+  }
+
+  for (var i = 0; i < len; i++) {
+    var charOne = stringOne.charAt(i);
+    var charTwo = stringTwo.charAt(i);
+    if (charOne !== charTwo) {
+      oldconsoleLog('char not equal 1:' + charOne + ' 2:' + charTwo);
+    }
+  }
+}
+
 var GOOD_WITH_CONTROL_CODES = '[32mgood[39m';
 var BAD_WITH_CONTROL_CODES = '[31m[1mbad[22m[39m';
 var UGLY_WITH_CONTROL_CODES = style.bgGreen.open + style.blueBright.open + 'ugly' + style.blueBright.close + style.bgGreen.close;
@@ -47,6 +67,7 @@ describe('Basic Tests...', function() {
   it ('Ugly', function(done) {
     spyOn(console, 'log').and.callFake(function(info) {
       expect(info).toBe(UGLY_WITH_CONTROL_CODES);
+      compareStrings(info, UGLY_WITH_CONTROL_CODES);
       done();
     });
 

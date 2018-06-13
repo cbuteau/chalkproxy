@@ -1,12 +1,16 @@
 
 var chalkproxy = require('..');
+// Build test string using this so the tests pass on linux.
+var style = require('ansi-styles');
 
 var mychalk;
 
 
 var GOOD_WITH_CONTROL_CODES = '[32mgood[39m';
 var BAD_WITH_CONTROL_CODES = '[31m[1mbad[22m[39m';
-var UGLY_WITH_CONTROL_CODES = '[42m[94mbad[39m[49m';
+//var UGLY_WITH_CONTROL_CODES = '[42m[94mugly[39m[49m';
+
+var UGLY_WITH_CONTROL_CODES = style.bgGreen.open + style.blueBright.open + 'ugly' + style.blueBright.close + style.bgGreen.close;
 
 // The point is to forgive some extra spaces and periods...
 // This test was written to improve the code.
@@ -44,12 +48,12 @@ describe('Forgiving parsing of strings to chalk functions...', function() {
 
   it ('Ugly', function(done) {
     spyOn(console, 'log').and.callFake(function(info) {
-      expect(info.indexOf('bad')).not.toBe(-1);
+      expect(info.indexOf('ugly')).not.toBe(-1);
       expect(info).toBe(UGLY_WITH_CONTROL_CODES);
       done();
     });
 
-    console.log(mychalk.ugly('bad'));
+    console.log(mychalk.ugly('ugly'));
   });
 
 });

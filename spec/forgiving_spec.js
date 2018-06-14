@@ -10,7 +10,13 @@ var GOOD_WITH_CONTROL_CODES = '[32mgood[39m';
 var BAD_WITH_CONTROL_CODES = '[31m[1mbad[22m[39m';
 //var UGLY_WITH_CONTROL_CODES = '[42m[94mugly[39m[49m';
 
-var UGLY_WITH_CONTROL_CODES = style.bgGreen.open + style.blueBright.open + 'ugly' + style.blueBright.close + style.bgGreen.close;
+var UGLY_WITH_CONTROL_CODES;
+if (isWin) {
+  UGLY_WITH_CONTROL_CODES = style.bgGreen.open + style.blueBright.open + 'ugly' + style.blueBright.close + style.bgGreen.close;
+} else {
+  UGLY_WITH_CONTROL_CODES = style.bgGreen.open + style.blue.open + 'ugly' + style.blue.close + style.bgGreen.close;
+}
+
 
 // The point is to forgive some extra spaces and periods...
 // This test was written to improve the code.
